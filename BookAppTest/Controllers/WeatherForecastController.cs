@@ -1,5 +1,7 @@
+using BookApp.Shared.Dtos.Requests;
+using BookApp.Shared.Extensions;
 using BookApp.Shared.Models;
-using BookApp.Shared.Models.DbContext;
+using BookApp.Shared.Validations;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookAppTest.Controllers;
@@ -14,9 +16,8 @@ public class WeatherForecastController : ControllerBase
     };
 
     private readonly ILogger<WeatherForecastController> _logger;
-    private readonly ApplicationDbContext _context;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger, ApplicationDbContext context)
+    public WeatherForecastController(ILogger<WeatherForecastController> logger)
     {
         _logger = logger;
     }
@@ -24,7 +25,8 @@ public class WeatherForecastController : ControllerBase
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
-        Book book = new Book();
+        LoginRequest request = new LoginRequest();
+        var body = request.GetJsonBody<LoginRequest, LoginRequestValidation>();
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),

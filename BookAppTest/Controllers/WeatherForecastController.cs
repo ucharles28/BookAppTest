@@ -1,3 +1,4 @@
+using BookApp.Shared.Models;
 using BookApp.Shared.Models.DbContext;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,6 +24,7 @@ public class WeatherForecastController : ControllerBase
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
+        Book book = new Book();
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),

@@ -42,9 +42,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "BookApp.Shared": {
+            "Booksrite.Shared": {
               "target": "Package",
-              "version": "[1.0.6, )"
+              "version": "[1.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

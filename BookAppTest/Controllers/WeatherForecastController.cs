@@ -1,4 +1,5 @@
-using BookApp.Shared.Models;
+using Booksrite.Shared.Dtos.Requests;
+using Booksrite.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookAppTest.Controllers;
@@ -23,7 +24,7 @@ public class WeatherForecastController : ControllerBase
     public IEnumerable<WeatherForecast> Get()
     {
         Book book = new Book();
-        // LoginRequest request = new LoginRequest();
+        LoginRequest request = new LoginRequest();
         // var body = request.GetJsonBody<LoginRequest, LoginRequestValidation>();
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

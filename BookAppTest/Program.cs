@@ -1,4 +1,5 @@
-// using BookApp.Shared.Models.DbContext;
+
+using Booksrite.Shared.Models.DbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// builder.Services.AddSingleton<ApplicationDbContext>();
+builder.Services.AddSingleton<ApplicationDbContext>();
 
 var app = builder.Build();
 
